@@ -28,10 +28,10 @@ let characters = [
   }
 ];
 
-app.listen(PORT, () => {
-  console.log(`Server listening on PORT ${PORT}`);
-});
-
 app.get("/api/charaters", (request, response) => {
   response.send(characters);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on PORT ${PORT}`);
 });
