@@ -28,8 +28,18 @@ let characters = [
   }
 ];
 
-app.get("/api/charaters", (request, response) => {
+app.get("/api/characters", (request, response) => {
   response.send(characters);
+});
+
+app.get("/api/characters/:character", (request, response) => {
+  response.send(
+    characters.filter(character => {
+      if (character.routeName === request.params.character) {
+        return character;
+      }
+    })
+  );
 });
 
 app.listen(PORT, () => {
